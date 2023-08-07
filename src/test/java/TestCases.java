@@ -1,3 +1,4 @@
+import Variables.configProperties;
 import org.bouncycastle.asn1.x500.style.RFC4519Style;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,10 @@ RegistrationPage.Registration();
     @Test()
     public void Login() {
         LoginPage loginprocess = new LoginPage(driver);
+        Navigation NavigateTo = new Navigation(driver);
+
+        NavigateTo.NavigateTologin();
+
         loginprocess.performlogin();
 
 
@@ -56,8 +61,6 @@ NavigatetoCart.NavigateToCart();
 
     @Test(dependsOnMethods = "AddRandomItem")
     public void RemoveItems() {
-
-        Random rand = new Random();
         Navigation NavigatetoCart = new Navigation(driver);
         NavigatetoCart.NavigateToCart();
         Home deleteOption = new Home(driver);

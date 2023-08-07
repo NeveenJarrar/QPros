@@ -1,3 +1,4 @@
+import Variables.configProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,7 +12,10 @@ public class Base {
     WebDriver driver = new ChromeDriver();
     @BeforeTest()
     void BeforeTheTest() throws InterruptedException {
-        driver.get("https://www.demoblaze.com/");
+      //  driver.get("https://www.demoblaze.com/");
+        configProperties Prob = new configProperties();
+        Prob.Properties();
+        driver.get(Prob.propertiry.getProperty("url"));
 
         WebDriver.Timeouts timeouts = driver.manage().timeouts().implicitlyWait((Duration.ofSeconds(3000)));
         Random rand = new Random();
